@@ -1,2 +1,106 @@
+HTML
 
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Coins Membership</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#e9f8ef;color:#17251f}
+header,footer{background:#124b38;color:white;text-align:center;padding:24px}
+.logo{font-size:30px;color:#ffd45a;font-weight:bold}
+nav{text-align:center;padding:15px;background:#0c3829}
+nav a{color:white;margin:10px;text-decoration:none}
+.hero{text-align:center;padding:45px 20px;background:#217854;color:white}
+h1{font-size:36px}
+h2{color:#124b38;text-align:center}
+section{padding:25px 16px;max-width:900px;margin:auto}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card,.payment{background:white;padding:22px;border-radius:14px;margin-bottom:15px}
+.card{border:1px solid #cce4d4}
+.price{font-size:28px;font-weight:bold}
+button,.button{display:inline-block;background:#ffd45a;color:#17251f;padding:13px 20px;border:0;border-radius:8px;font-weight:bold;text-decoration:none;cursor:pointer}
+label{display:block;margin-top:14px;font-weight:bold}
+input,select{width:100%;padding:13px;margin-top:5px;border:1px solid #aaa;border-radius:7px;font-size:16px}
+.full{width:100%;margin-top:20px}
+.notice{background:#fff4d1;padding:12px;border-radius:8px;font-size:14px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">🪙 Brain Coins</div>
+<p>Learn • Grow • Earn</p>
+</header>
+<nav>
+<a href="#home">Home</a>
+<a href="#plans">Membership</a>
+<a href="#payment">M-Pesa</a>
+</nav>
+<div class="hero" id="home">
+<h1>Welcome to Brain Coins!</h1>
+<p>Join our community and explore learning opportunities.</p>
+<a class="button" href="#plans">Explore Membership</a>
+</div>
+<section id="plans">
+<h2>Choose Your Membership</h2>
+<div class="plans">
+<div class="card">
+<h3>🌱 Starter</h3>
+<p class="price">KSh 100</p>
+<p>Starter membership and community updates.</p>
+<button onclick="choose('Starter')">Choose Starter</button>
+</div>
+<div class="card">
+<h3>⭐ Premium</h3>
+<p class="price">KSh 300</p>
+<p>Premium membership and learning resources.</p>
+<button onclick="choose('Premium')">Choose Premium</button>
+</div>
+<div class="card">
+<h3>👑 VIP</h3>
+<p class="price">KSh 500</p>
+<p>VIP membership and premium resources.</p>
+<button onclick="choose('VIP')">Choose VIP</button>
+</div>
+</div>
+<p class="notice">Sample prices: change them to match your actual membership offer. Membership does not guarantee earnings.</p>
+</section>
+<section id="payment">
+<h2>M-Pesa Membership Payment</h2>
+<div class="payment">
+<form id="paymentForm">
+<label for="member">Your name</label>
+<input id="member" required placeholder="Enter your name">
+<label for="phone">M-Pesa phone number</label>
+<input id="phone" type="tel" required placeholder="07XXXXXXXX">
+<label for="plan">Membership plan</label>
+<select id="plan" required>
+<option value="">Choose a plan</option>
+<option>Starter</option>
+<option>Premium</option>
+<option>VIP</option>
+</select>
+<p class="notice">Online payments are not connected yet. Never enter or share your M-Pesa PIN on this website.</p>
+<button class="full" type="submit">Continue</button>
+</form>
+<p id="message" role="status"></p>
+</div>
+</section>
+<footer>
+<p>© 2026 Brain Coins</p>
+<p>Add your official contact details here.</p>
+</footer>
+<script>
+function choose(plan){
+document.getElementById('plan').value=plan;
+document.getElementById('payment').scrollIntoView();
+}
+document.getElementById('paymentForm').addEventListener('submit',function(e){
+e.preventDefault();
+document.getElementById('message').textContent='Your plan is selected. M-Pesa payment processing still needs to be connected.';
+});
+</script>
+</body>
+</html>
